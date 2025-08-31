@@ -2,8 +2,8 @@
 
 From the [SkillFactory Data Science course](https://skillfactory.ru/data-scientist).
 
-## Проекты
+## Projects
 
-* [Проект 0. Игра угадай число]()
+* [Project 0. Game: Guess the number]()
 * []
 * []
