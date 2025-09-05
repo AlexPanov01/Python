@@ -6,7 +6,7 @@ import numpy as np
 
 
 def random_predict(number: int = 1) -> int:
-    """Рандомно угадываем число
+    """Угадываем число методом бинарного поиска
 
     Args:
         number (int, optional): Загаданное число. Defaults to 1.
@@ -15,12 +15,19 @@ def random_predict(number: int = 1) -> int:
         int: Число попыток
     """
     count = 0
-
+    predict_number = 50
+    min_number = 0
+    max_number = 100
     while True:
         count += 1
-        predict_number = np.random.randint(1, 101)  # предполагаемое число
         if number == predict_number:
-            break  # выход из цикла если угадали
+            break
+        elif number > predict_number:
+            min_number = predict_number
+            predict_number = round(predict_number + max_number) / 2
+        elif number < predict_number:
+            max_number = predict_number
+            predict_number = round(predict_number + min_number) / 2
     return count
 
 
@@ -34,8 +41,10 @@ def score_game(random_predict) -> int:
         int: среднее количество попыток
     """
     count_ls = []
-    np.random.seed(1)  # фиксируем сид для воспроизводимости
-    random_array = np.random.randint(1, 101, size=(1000))  # загадали список чисел
+    # фиксируем сид для воспроизводимости
+    np.random.seed(1)  
+    # загадали список чисел
+    random_array = np.random.randint(1, 101, size=(1000))  
 
     for number in random_array:
         count_ls.append(random_predict(number))

@@ -1,4 +1,36 @@
-from game_v2 import score_game
-from game_v2 import random_predict
+### Игра угадай число
+# Компьютер загадывает число от 1 до 100, а человек угадывает
+
+import numpy as np
+
+# Компьютер загадывает число
+number = np.random.randint(1, 101) # загадываем число
+
+# количество попыток
+count = 0
+
+while True:
+    count+=1
+    # Принимаем пользовательское число
+    predict_number = int(input("Угадай число от 1 до 100: "))
+    
+    # Проверяем пользовательское число на соответсвие загадонному
+    if predict_number > number:
+        print("Число должно быть меньше!")
+
+    elif predict_number < number:
+        print("Число должно быть больше!")
+    
+    else:
+        # Выводим загаданное число и за какое количество попыток оно было угадано
+        print("Вы угадали число! Это число = {}, за {} попыток".format(number, count))
+        #конец игры выход из цикла
+        break 
+
+### Импортируем в основной файл версию игры, в которой компьютер сам угадывает число
+# и выводит количество затраченных попыток за 1000 игр
+
+from SF_DSP_Educational_Projects.project_0.game import score_game
+from SF_DSP_Educational_Projects.project_0.game import random_predict
 
 score_game(random_predict)
