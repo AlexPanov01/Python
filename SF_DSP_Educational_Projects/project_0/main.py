@@ -30,7 +30,7 @@ while True:
 ### Импортируем в основной файл версию игры, в которой компьютер сам угадывает число
 # и выводит количество затраченных попыток за 1000 игр
 
-from SF_DSP_Educational_Projects.project_0.game import score_game
-from SF_DSP_Educational_Projects.project_0.game import random_predict
+from game import score_game
+from game import random_predict
 
 score_game(random_predict)
